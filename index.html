@@ -1,9 +1,103 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 	<title>Brief Opinions</title>
+	<meta charset="utf-8">
+	<!-- reset.css -->
+	<link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+
+	<!-- style.css -->
+	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+
+	<!-- custom style sheet for jumbotron imeages etc -->
+	<link rel="stylesheet" type="text/css" href="assets/css/custom.css">
+	<!-- twitter bootstrap Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+	<!-- Optional getbootstrap theme -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+	<!-- mobile responsiveness -->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<!-- jquery -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+
+	<!-- our javascript app -->
+	<script type="text/javascript" src="assets/javascript/brief_opinions.js"></script>
+	<!-- firebase -->
+	<script src="https://www.gstatic.com/firebasejs/3.3.0/firebase.js"></script>
 </head>
 <body>
+	<!-- place for the main title -->
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12 jumbotron">
+				<div class="text-center">
+					<h1>Brief Opinions</h1>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--bootstrap navbar section -->
+	<nav class="navbar navbar-default" role="navigation">
+     	<div class="container-fluid">
+<!--header section -->
+          <div class="navbar-header">
+               <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+              		<span class="sr-only">Toggle navigation</span>
+               		<span class="icon-bar"></span>
+               		<span class="icon-bar"></span>
+               		<span class="icon-bar"></span>
+               </button>
+               <a class="navbar-brand" href="#">Brief Opinions</a>
+          </div>
+ <!-- menu section -->
+          <div class="collapse navbar-collapse navbar-ex1-collapse">
+               <ul class="nav navbar-nav navbar-right">
+               <li><a href="# ">Home</a></li>
+               <li><a href="# ">About</a></li>
+               <li><a href="#">Resources</a></li>
+               <li><a href="#">Blog</a></li>
+               <li><a href="#">Help</a></li>
+               </ul>
+          </div>
+     </div>
+
+     <div id=text>
+     	<div class="container">
+     		<div class="well">
+ 		<form id="form">
+   			<label for="input">Enter the case title/name in the bar below.</label>
+   				<input type="text" id="case-input" class="form-control" placeholder="Enter information here" id="case-input">
+   				<br>
+   				<input id="search" type="submit" class= "btn btn-success"  value="Find Case">
+ 		</form>
+ 			</div>
+ 		</div>
+   	</div>
+
+   	<!-- examples of common or popular searches for court decisions and opinions -->
+   	<div class="examples">
+   		<h2><strong>Popular Legal Briefs and Opinions</strong></h2>
+   		<p>Popular case search</p>
+   		<p>Popular case search</p>
+   		<p>Popular case search</p>
+   	</div>
+
+   	<!-- bootstrap well for information or examples -->
+   	<div class="container">
+   		<h3>Place holder</h3>
+   		<div class="well">Place holder
+   		</div>
+   	</div>
+
+   	<div class="footer">
+		<div class="container">
+			<div class="col-md-12">Footer placeholder</div>
+		</div>
+	</div>
+
 
 </body>
 </html>
