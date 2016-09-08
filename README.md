@@ -1,20 +1,20 @@
 # Brief Opinions
 Brief Opinions is an app that searches court cases and returns a summarized opinion via the courtlistener API and the textuality API.
 
-# Screenshots
+## Screenshots
 
-
+![ScreenShot](https://github.com/codemarq/briefOpinions/blob/ee5c759c56d992fb76a4557a0dc1543978d73680/assets/images/screenshot-Brief%20Opinions.png?raw=true)
 
 ## Technologies Used
--JavaScript
--HTML
--CSS
--jQuery
--Ajax
--Firebase
--Court Listener REST API (https://www.courtlistener.com/api/rest-info/)
--Textuality API (https://market.mashape.com/djinn/textuality)
--twitter Bootstrap (http://getbootstrap.com/)
+* JavaScript
+* HTML
+* CSS
+* jQuery
+* Ajax
+* Firebase
+* Court Listener REST API (https://www.courtlistener.com/api/rest-info/)
+* Textuality API (https://market.mashape.com/djinn/textuality)
+* twitter Bootstrap (http://getbootstrap.com/)
 
 
 ## Overall Concept
@@ -29,10 +29,12 @@ Law Students, Lawyers, and anyone interested in gleaning a quick understanding o
 Brief Opinions saves time by bestowing upon its users the ability to glean key information from a Supreme Court Decision in less time than it would take to read the entire opinion.
 
 ## Built With
--Sublime
--Google Firebase
+* Sublime
+* Google Firebase
 
 ## Authors
-John-Mike Marquardt @codemarq, Eric Sievers @goodtuesday, and Jay M. Frimmel @JayMFrimmel
+* John-Mike Marquardt @codemarq
+* Eric Sievers @goodtuesday
+* Jay M. Frimmel @JayMFrimmel
 
 ## Acknowledgements
