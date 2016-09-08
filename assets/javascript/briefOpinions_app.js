@@ -10,11 +10,12 @@ $(document).ready(function() {
 	var database = firebase.database();
 	
 	// query var will be where the search topic goes
-	var query = '&case_name=roe+v+wade';
+	var query = 'roe+v+wade';
+	var opinion = '';
 
 	// api endpoint url
-	var queryURL = "https://www.courtlistener.com/api/rest/v3/search/?type=o&q=&type=o&order_by=score+desc&stat_Precedential=on&cited_gt=0&cited_lt=60000" + query;
-
+	var queryURL = "https://www.courtlistener.com/api/rest/v3/search/?type=o&q=&type=o&order_by=score+desc&stat_Precedential=on&cited_gt=0&cited_lt=6000&case_name=" + query;
+	var opinionRoot = "https:/www.courtlistener.com"
     // makes the request for data from courtListener
     $.ajax({
     		url: queryURL, 
@@ -24,27 +25,28 @@ $(document).ready(function() {
        		console.log(response);
        		// store absolute variable for opinion url globally
        		opinion = response.results[0].absolute_url;
+
        		console.log(opinion);
-       		$('#opinion').html('<h2>' + response.results[0].snippet + '<h2>');
+       		$('#result').html('<p>' + response.results[0].snippet + '</p>');
     });
-	
+	console.log(opinion);
 
 	var queryURL2 = 'https://extracttext.p.mashape.com/api/content_extract/';
 
 
 
-    $.ajax({
-    	url: queryURL2,
-    	method: 'GET',
-    	headers: {'X-Mashape-Key': 'bsAWoVPCw0mshtGXn976UwaNxPsJp1Pk92djsnDGgknyotnlW9',
-    				'Content-Type': 'application/x-www-form-urlencoded',
-    				'Accept': 'application/json' 
-    			},
-    	dataurl: opinion, 
-    }).done(function (response2) {
-    	console.log(response2);
-    	$('#opinion').html('<p>' + response + '</p>');
-    });
+    // $.ajax({
+    // 	url: queryURL2,
+    // 	method: 'GET',
+    // 	headers: {'X-Mashape-Key': 'bsAWoVPCw0mshtGXn976UwaNxPsJp1Pk92djsnDGgknyotnlW9',
+    // 				'Content-Type': 'application/x-www-form-urlencoded',
+    // 				'Accept': 'application/json' 
+    // 			},
+    // 	dataurl: opinion, 
+    // }).done(function (response2) {
+    // 	console.log(response2);
+    // 	$('#opinion').html('<p>' + response + '</p>');
+    // });
 
 
 
