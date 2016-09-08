@@ -3,7 +3,7 @@ Brief Opinions is an app that searches court cases and returns a summarized opin
 
 # Screenshots
 
-![Screenshot](assets/images/screenshot-Brief Opinions.png)
+![ScreenShot](assets/images/screenshot-BriefOpinions.png)
 
 ## Technologies Used
 -JavaScript
