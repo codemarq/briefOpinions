@@ -4,7 +4,7 @@
 	<title>Brief Opinions</title>
 	<meta charset="utf-8">
 	<!-- reset.css -->
-	<!-- <link rel="stylesheet" type="text/css" href="assets/css/reset.css"> -->
+	<link rel="stylesheet" type="text/css" href="assets/css/reset.css">
 
 	<!-- twitter bootstrap Latest compiled and minified CSS -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -28,91 +28,48 @@
 	<script type="text/javascript" src="assets/javascript/briefOpinions_app.js"></script>
 </head>
 <body>
-	<!-- place for the main title -->
-	<div class="container">
-		<div class="row">
-			<div class="col-md-12 jumbotron">
-				<div class="text-center">
-					<h1>Brief Opinions</h1>
-				</div>
-			</div>
+	<div class="page-wrap container">
+	<header class="row">
+		<div class="jumbotron">
+			<h1><strong>Brief Opinions</strong></h1>
 		</div>
-	</div>
-	<!--bootstrap navbar section -->
-	<!-- <nav class="navbar navbar-inverse" role="navigation">
-     	<div class="container-fluid"> -->
-			<!--header section -->
-          <!-- 	<div class="navbar-header">
-               <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
-              		<span class="sr-only">Toggle navigation</span>
-               		<span class="icon-bar"></span>
-               		<span class="icon-bar"></span>
-               		<span class="icon-bar"></span>
-               </button>
-               <a class="navbar-brand" href="#">Brief Opinions</a>
-          	</div> -->
- 			<!-- menu section -->
-        	<!-- <div class="collapse navbar-collapse navbar-ex1-collapse">
-               <ul class="nav navbar-nav navbar-right">
-	               <li><a href="# ">Home</a></li>
-	               <li><a href="# ">About</a></li>
-	               <li><a href="#">Resources</a></li>
-	               <li><a href="#">Blog</a></li>
-	               <li><a href="#">Help</a></li>
-               </ul>
-        	</div> -->
-    	<!-- </div>
-    </nav> -->
+ 	</header>	
 
-    <div class="main">
-     	<h2>Brief Opinions: the Place for Opinions</h2>
-     	<br>
-     	<p>Brief Opinions is 'the' place to search for the court decisions that will support your legal cases. To start, enter the case title or key word(s) in the search bar below.</p>
+ 	<!-- summary of the app -->
+    <div id="main">
+     	<h2>Search by court case for a summary of the opinion.</h2>
     </div>
 
-     <div id=text>
-     	<div class="container">
-     		<div class="well">
- 				<form id="form">
-   					<label for="case-input">Enter the case title/name in the bar below.</label>
-   					<input type="text" id="case-input" class="form-control" placeholder="Enter information here, e.g. Roe v Wade">
-   					<br>
-   					<input id="search" type="submit" class= "btn btn-success"  value="Find Case">
- 				</form>
- 			</div>
+    <!-- opinion search and recent searches in same row -->
+    <div class="row">
+  	 	<div class="well col-md-5 col-sm-12">
+ 			<form id="form">
+   				<h3>Opinion Search</h3>
+   				<input type="text" id="case-input" class="form-control" placeholder="Enter information here, e.g. Roe v Wade">
+   				<br>
+   				<input id="search" type="submit" class= "btn btn-success">
+ 			</form>
  		</div>
-   	</div>
 
-   	<!-- examples of common or popular searches for court decisions and opinions -->
-   	<div class="examples">
-   		<div class="row">
-   			<div class="well">
-   				<div class="col-md-12">
-   					<h2><strong>Popular Legal Briefs and Opinions</strong></h2>
-   				</div>
-		   		<p>Popular case search</p>
-		   		<p>Popular case search</p>
-		   		<p>Popular case search</p>
-   			</div>
+	   	<!-- examples of common or popular searches for court decisions and opinions -->
+   		<div class="well col-md-5 col-sm-12" id="recentSearches">
+   			<h3>Popular Legal Briefs and Opinions</h3>
+   			<div id="examples"></div>
    		</div>
    	</div>
 
-   	<!-- bootstrap well for information or examples -->
-   	<div class="container">
-   		<div class="result">
-   			<h2>Person v. Entity</h2>
-   		</div>
-   		<div class="well"><!-- Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tum mihi Piso: Quid ergo? Sed ego in hoc resisto; In qua quid est boni praeter summam voluptatem, et eam sempiternam? Quae similitudo in genere etiam humano apparet. Sed in rebus apertissimis nimium longi sumus. Quare attende, quaeso. Duo Reges: constructio interrete.
-
-		Quam nemo umquam voluptatem appellavit, appellat; Habent enim et bene longam et satis litigiosam disputationem. Quis enim potest ea, quae probabilia videantur ei, non probare? Itaque sensibus rationem adiunxit et ratione effecta sensus non reliquit. Atque ab his initiis profecti omnium virtutum et originem et progressionem persecuti sunt. Quis Aristidem non mortuum diligit? Quamquam in hac divisione rem ipsam prorsus probo, elegantiam desidero. Nescio quo modo praetervolavit oratio. -->
-   		</div>
+   	<!-- Well for information or examples -->
+   	<div class="row">
+   		<div class="well" id="result"></div>
    	</div>
 
+   	</div>
    	<div class="footer">
 		<div class="container">
 			<div class="col-md-12">&copy; 2016 John-Mike Marquardt, Jay Frimmel, Eric Sievers</div>
 		</div>
 	</div>
+
 
 
 </body>
