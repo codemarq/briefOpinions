@@ -1,6 +1,7 @@
 body {
   	background-color: #333;
   	text-align: center;
+    font-family: 'Bentham', serif;
   }
  
  .examples {
@@ -13,7 +14,7 @@ body {
  }
  
  .result {
- +#main {
+   #main {
   	color: white;
   }
   
@@ -29,11 +30,12 @@ body {
  /*custom.css*/
   .jumbotron {
   	position: relative;
+    font-family: 'Poller One', cursive, serif;
   	/* add bootstrap jumbotron image */
   	background: url("../images/Scales-of-Justice-01.jpg");
   	background-size: cover;
          background-repeat: no-repeat;
- 	background-size: cover;
+ 	  background-size: cover;
      background-repeat: no-repeat;
   	background-position: center;
   	/* change bootstrap jumbotron test color */
