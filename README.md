@@ -1,9 +1,9 @@
 # Brief Opinions
 Brief Opinions is an app that searches court cases and returns a summarized opinion via the courtlistener API and the textuality API.
 
-# Screenshots
+## Screenshots
 
-![ScreenShot](assets/images/screenshot-BriefOpinions.png)
+![ScreenShot](https://github.com/codemarq/briefOpinions/blob/ee5c759c56d992fb76a4557a0dc1543978d73680/assets/images/screenshot-Brief%20Opinions.png?raw=true)
 
 ## Technologies Used
 -JavaScript
