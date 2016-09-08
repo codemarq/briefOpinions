@@ -1,3 +1,8 @@
+body {
+	background-color: #333;
+	text-align: center;
+}
+
 .examples {
 	text-align: center;
 }
@@ -13,13 +18,14 @@
 
 .footer {
 	color: white;
+	text-align: center;
 }
 
 /*custom.css*/
 .jumbotron {
 	position: relative;
 	/* add bootstrap jumbotron image */
-	background: url("http://www.thedailysheeple.com/wp-content/uploads/2014/01/Scales-of-Justice-01.jpg");
+	background: url("../images/Scales-of-Justice-01.jpg");
 		background-size: cover;
         background-repeat: no-repeat;
 	background-position: center;
