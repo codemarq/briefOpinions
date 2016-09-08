@@ -1,0 +1,37 @@
+.examples {
+	text-align: center;
+}
+
+.main {
+	color: white;
+	text-align: center;
+}
+
+.result {
+	color: white;
+}
+
+.footer {
+	color: white;
+}
+
+/*custom.css*/
+.jumbotron {
+	position: relative;
+	/* add bootstrap jumbotron image */
+	background: url("http://www.thedailysheeple.com/wp-content/uploads/2014/01/Scales-of-Justice-01.jpg");
+		background-size: cover;
+        background-repeat: no-repeat;
+	background-position: center;
+	/* change bootstrap jumbotron test color */
+	color: white !important;
+	background-color: darkblue !important;
+		}
+		
+.navbar {
+     background-image: linear-gradient(#54B4EB, #2FA4E7 60%, #1D9CE5);
+     background-repeat: no-repeat;
+     border-bottom: 1px solid #178ACC;
+     box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.1);
+     border-radius: 0px;
+}
