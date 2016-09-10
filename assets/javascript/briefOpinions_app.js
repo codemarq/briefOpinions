@@ -29,41 +29,50 @@ $(document).ready(function() {
        		opinion = response.results[0].absolute_url;
 
        		console.log(opinion);
+
+       		
        		$('#result').html('<p>' + response.results[0].snippet + '</p>');
     });
 	console.log(opinion);
-
+	dataUrl = opinionRoot + opinion;
+	console.log('dataUrl: ' + dataUrl);
 	var queryURL2 = 'https://extracttext.p.mashape.com/api/content_extract/';
+	dataUrl2 = JSON.stringify(dataUrl);
+	data = {dataurl: dataUrl2};
 	
+
 	setTimeout(function () {
-		dataUrl = opinionRoot + opinion;
-		console.log('dataUrl: ' + dataUrl);
+		// dataUrl = opinionRoot + opinion;
+		// console.log('dataUrl: ' + dataUrl);
 		
 
-		/* textualize curl to ajax not working
+		 // textualize curl to ajax not working
 
 		 $.ajax({
     			url: queryURL2,
-    			method: 'GET',
+    			method: 'POST',
     			headers: {'X-Mashape-Key': 'bsAWoVPCw0mshtGXn976UwaNxPsJp1Pk92djsnDGgknyotnlW9',
     				'Content-Type': 'application/x-www-form-urlencoded',
     				'Accept': 'application/json' 
     			},
-    			dataurl: dataUrl, 
+    			// contentType: 'application/x-www-form-urlencoded',
+    			dataType: 'json',
+    			data: data,
+    			// data: {dataurl: 'https://www.courtlistener.com/opinion/108713/roe-v-wade/'}, 
     		}).done(function (response2) {
     			console.log(response2);
-    			$('#result').html('<p>' + response + '</p>');
-    	*/
+    			$('#result').html('<p>' + response2 + '</p>');
+    	
 
-    	textapi.summarize({
-  			url: 'http://techcrunch.com/2015/04/06/john-oliver-just-changed-the-surveillance-reform-debate',
-  			sentences_number: 3
-		}, function(error, response) {
-  			if (error === null) {
-    			response.sentences.forEach(function(s) {
-      			console.log(s);
-    			});
-  			}
+  //   	textapi.summarize({
+  // 			url: 'http://techcrunch.com/2015/04/06/john-oliver-just-changed-the-surveillance-reform-debate',
+  // 			sentences_number: 3
+		// }, function(error, response) {
+  // 			if (error === null) {
+  //   			response.sentences.forEach(function(s) {
+  //     			console.log(s);
+  //   			});
+  // 			}
 		});
 
     	
