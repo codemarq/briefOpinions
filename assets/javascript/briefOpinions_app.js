@@ -8,18 +8,35 @@ $(document).ready(function() {
 	};
 	firebase.initializeApp(config);
 	var database = firebase.database();
-	
+
 	// query var will be where the search topic goes
-	var query = 'roe+v+wade';
+	var query = $('#case-input').val().trim();
 	//  opinion from opinions api
-	var opinionEndpoint = 'https://www.courtlistener.com/api/rest/v3/opinions/?case_name=roe+v+wade'
+	var opinionEndpoint = 'https://www.courtlistener.com/api/rest/v3/opinions/?case_name=roe+v+wade';		
 	var opinion = '';
 
 	// api endpoint url
 	var queryURL = "https://www.courtlistener.com/api/rest/v3/search/?type=o&q=&type=o&order_by=score+desc&stat_Precedential=on&cited_gt=0&cited_lt=6000&case_name=" + query;
 	var opinionRoot = "https:/www.courtlistener.com"
-    // makes the request for data from courtListener
-    $.ajax({
+    
+
+	// Capture Button Click
+	$("#search").on("click", function(event) {
+		// prevent reload of page if user hits enter
+		event.preventDefault();
+		
+		// YOUR TASK!!!
+		// Code in the logic for storing and retrieving the most recent user.
+		// Dont forget to provide initial data to your Firebase database.
+		recent = $('#case-input').val().trim();
+
+		// set firebase value
+		database.ref().set({
+			recent: recent,
+		});
+
+		// makes the request for data from courtListener
+   		$.ajax({
     		url: queryURL, 
     		method: 'GET'
     		// when done
@@ -28,41 +45,19 @@ $(document).ready(function() {
        		// store absolute variable for opinion url globally
        		opinion = response.results[0].absolute_url;
 
-       		console.log(opinion);
-
-       		
+       		console.log(opinion);       		
        		$('#result').html('<p>' + response.results[0].snippet + '</p>');
     });
-	console.log(opinion);
-	dataUrl = opinionRoot + opinion;
-	console.log('dataUrl: ' + dataUrl);
-	var queryURL2 = 'https://extracttext.p.mashape.com/api/content_extract/';
-	dataUrl2 = JSON.stringify(dataUrl);
-	data = {dataurl: dataUrl2};
 	
+});
 
-	setTimeout(function () {
-		// dataUrl = opinionRoot + opinion;
-		// console.log('dataUrl: ' + dataUrl);
+   
+   
+	// setTimeout(function () {
+	// 	// dataUrl = opinionRoot + opinion;
+	// 	// console.log('dataUrl: ' + dataUrl);
 		
 
-		 // textualize curl to ajax not working
-
-		 $.ajax({
-    			url: queryURL2,
-    			method: 'POST',
-    			headers: {'X-Mashape-Key': 'bsAWoVPCw0mshtGXn976UwaNxPsJp1Pk92djsnDGgknyotnlW9',
-    				'Content-Type': 'application/x-www-form-urlencoded',
-    				'Accept': 'application/json' 
-    			},
-    			// contentType: 'application/x-www-form-urlencoded',
-    			dataType: 'json',
-    			data: data,
-    			// data: {dataurl: 'https://www.courtlistener.com/opinion/108713/roe-v-wade/'}, 
-    		}).done(function (response2) {
-    			console.log(response2);
-    			$('#result').html('<p>' + response2 + '</p>');
-    	
 
   //   	textapi.summarize({
   // 			url: 'http://techcrunch.com/2015/04/06/john-oliver-just-changed-the-surveillance-reform-debate',
@@ -72,12 +67,12 @@ $(document).ready(function() {
   //   			response.sentences.forEach(function(s) {
   //     			console.log(s);
   //   			});
-  // 			}
-		});
+ //  // 			}
+	// 	});
 
     	
-    // timeout for now.  will add this to the submit on-click function
-	}, 5000);
+ //    // timeout for now.  will add this to the submit on-click function
+	// }, 5000);
 	
 	// original curl below
 
