@@ -3,14 +3,18 @@ body {
   	background-color: darkblue;
   	text-align: center;
     font-family: 'Bentham', serif;
+    color: white;
   }
- 
- .examples {
- 	text-align: center;
+  #main {
+      color: white;
+      text-align: center;
+    }
+
+    .well {
+    background-color: #96C1ED !important;
+    color: black;
  }
- 
- .main {
- 	color: white;
+ .examples {
  	text-align: center;
  }
  
@@ -41,9 +45,10 @@ body {
   	/* change bootstrap jumbotron test color */
   	color: white !important;
   	background-color: darkblue !important;
+    margin-bottom: 0;
  		}
  		
- 	margin-bottom:0;
+ 	
  }
  		/*
   .navbar {
