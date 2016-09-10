@@ -1,12 +1,17 @@
 body {
-  	background-color: darkblue;
-  	text-align: center;
+    background-color: darkblue;
+    text-align: center;
     font-family: 'Bentham', serif;
-}
- 
+  }
+ 		
 #main {
  	color: white;
 }
+
+.well {
+    background-color: #96C1ED !important;
+    color: black;
+    }
  
 .jumbotron {
   position: relative;
@@ -16,15 +21,11 @@ body {
   background-size: cover;
   background-repeat: no-repeat;
  	background-size: cover;
-  background-repeat: no-repeat;
   background-position: center;
   /* change bootstrap jumbotron test color */
   color: white !important;
   background-color: darkblue !important;
-}
- 
-#recentSearches {
- 	float: right;
+
 }
  
 .footer {
