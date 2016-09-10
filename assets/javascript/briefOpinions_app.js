@@ -9,15 +9,10 @@ $(document).ready(function() {
 	firebase.initializeApp(config);
 	var database = firebase.database();
 
-	// query var will be where the search topic goes
-	var query = $('#case-input').val().trim();
-	//  opinion from opinions api
+	//  opinion from court listener opinions api
 	var opinionEndpoint = 'https://www.courtlistener.com/api/rest/v3/opinions/?case_name=roe+v+wade';		
 	var opinion = '';
-
-	// api endpoint url
-	var queryURL = "https://www.courtlistener.com/api/rest/v3/search/?type=o&q=&type=o&order_by=score+desc&stat_Precedential=on&cited_gt=0&cited_lt=6000&case_name=" + query;
-	var opinionRoot = "https:/www.courtlistener.com"
+	var opinionRoot = "https:/www.courtlistener.com";
     
 
 	// Capture Button Click
@@ -34,19 +29,44 @@ $(document).ready(function() {
 		database.ref().set({
 			recent: recent,
 		});
-
+		// query var will be where the search topic goes
+		var query = $('#case-input').val().trim();
+		// court listener api endpoint url
+		var queryURL = "https://www.courtlistener.com/api/rest/v3/search/?type=o&q=&type=o&order_by=score+desc&stat_Precedential=on&cited_gt=0&cited_lt=6000&case_name=" + query;
+	
 		// makes the request for data from courtListener
    		$.ajax({
     		url: queryURL, 
     		method: 'GET'
     		// when done
     	}).done(function(response) {
-       		console.log(response);
-       		// store absolute variable for opinion url globally
-       		opinion = response.results[0].absolute_url;
+       		if (response.results.length == 0) {
+       			$('#result').html('<h3>No results found, check spelling!</h3>');
+       		} else {
+       			console.log(response);
+       			// store absolute variable for opinion url globally
+       			opinion = response.results[0].absolute_url;
+       			console.log('count: ' + response.results.length);
 
-       		console.log(opinion);       		
-       		$('#result').html('<p>' + response.results[0].snippet + '</p>');
+       			console.log(opinion);       		
+       			// $('#result').html('<p>' + response.results[0].snippet + '</p>');
+       		// second ajax call
+       		apikey2 = '55accaef-cf1e-4ff6-91cf-8bd4a4dc93ac';
+       		queryUrl2 = 'http://api.intellexer.com/summarize?apikey=55accaef-cf1e-4ff6-91cf-8bd4a4dc93ac&conceptsRestriction=7&returnedTopicsCount=2&summaryRestriction=7&textStreamLength=1000&url=https://www.courtlistener.com/opinion/94508/plessy-v-ferguson/?q=plessy+v+ferguson'
+       		$.ajax({
+       			url: queryUrl2,
+       			method: 'GET'
+       		}).done(function(response2) {
+       			for (var i = 0; i < response2.items.length; i++) {
+       				$('#result').append('<p>' + response2.items[i].text + '</p>');
+       				
+       			}
+       			
+       		});
+
+       		}
+
+       		
     });
 	
 });
