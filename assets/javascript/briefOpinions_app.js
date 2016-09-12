@@ -12,103 +12,121 @@ $(document).ready(function() {
 	//  opinion from court listener opinions api
 	var opinionEndpoint = 'https://www.courtlistener.com/api/rest/v3/opinions/?case_name=roe+v+wade';		
 	var opinion = '';
-	var opinionRoot = "https:/www.courtlistener.com";
-    
+	var opinionRoot = "https://www.courtlistener.com";
+    var opinions = [];
+    var query = '';
 
-	// Capture Button Click
-	$("#search").on("click", function(event) {
+    // second ajax call-intellexer summarizer
+    var	apikey2 = '55accaef-cf1e-4ff6-91cf-8bd4a4dc93ac';
+       
+	// Search Button Click
+	function search (event) {
+	
 		// prevent reload of page if user hits enter
 		event.preventDefault();
 		
-		// YOUR TASK!!!
-		// Code in the logic for storing and retrieving the most recent user.
-		// Dont forget to provide initial data to your Firebase database.
 		recent = $('#case-input').val().trim();
 
 		// set firebase value
 		database.ref().set({
 			recent: recent,
 		});
-		// query var will be where the search topic goes
-		var query = $('#case-input').val().trim();
+
+		// query var captures input for first ajax call to court listener api
+		query = $('#case-input').val().trim();
 		// court listener api endpoint url
-		var queryURL = "https://www.courtlistener.com/api/rest/v3/search/?type=o&q=&type=o&order_by=score+desc&stat_Precedential=on&cited_gt=0&cited_lt=6000&case_name=" + query;
-	
-		// makes the request for data from courtListener
+		var queryUrl1 = "https://www.courtlistener.com/api/rest/v3/search/?type=o&q=&type=o&order_by=score+desc&stat_Precedential=on&cited_gt=0&cited_lt=6000&case_name=" + query;
+		
+		// empty search field
+		$('#case-input').empty();
+       	// makes the request for data from courtListener
    		$.ajax({
-    		url: queryURL, 
+    		url: queryUrl1, 
     		method: 'GET'
     		// when done
     	}).done(function(response) {
        		if (response.results.length == 0) {
        			$('#result').html('<h3>No results found, check spelling!</h3>');
        		} else {
-       			console.log(response);
-       			// store absolute variable for opinion url globally
-       			opinion = response.results[0].absolute_url;
-       			console.log('count: ' + response.results.length);
-
-       			console.log(opinion);       		
-       			// $('#result').html('<p>' + response.results[0].snippet + '</p>');
-       		// second ajax call
-       		apikey2 = '55accaef-cf1e-4ff6-91cf-8bd4a4dc93ac';
-       		queryUrl2 = 'http://api.intellexer.com/summarize?apikey=55accaef-cf1e-4ff6-91cf-8bd4a4dc93ac&conceptsRestriction=7&returnedTopicsCount=2&summaryRestriction=7&textStreamLength=1000&url=https://www.courtlistener.com/opinion/94508/plessy-v-ferguson/?q=plessy+v+ferguson'
-       		$.ajax({
-       			url: queryUrl2,
-       			method: 'GET'
-       		}).done(function(response2) {
-       			for (var i = 0; i < response2.items.length; i++) {
-       				$('#result').append('<p>' + response2.items[i].text + '</p>');
-       				
-       			}
+       			// draw a table for search results
+       			var table = $('<table>');
+       			table.attr('id', 'table');
+       			var tableHead = $('<thead>');
        			
-       		});
+       			var tableRow = $('<tr>');
+       			tableRow.attr('id', 'tableRow');
+       			tableRow.addClass('row')
 
+       			var tableBody = $('<tbody>');
+   				tableBody.attr('id', 'tableBody')
+       				
+       			// write table of search results to html
+       			$('#result').empty();
+       			$('#result').html('<h3>Results</h3>');
+       			$('#result').append(table);
+   				$('#table').append(tableHead);
+   				$('#table').append(tableRow);
+       			$('#tableRow').append('<th class="col-md-3"><h4>Case Name</h4></th>');
+       			$('#tableRow').append('<th class="col-md-3"><h4>Court</h4></th>');
+       			$('#tableRow').append('<th class="col-md-6"><h4>Abstract</h4></th>');
+       			$('#table').append(tableBody);
+
+       			// populate table with data
+       			for (var i = 0; i < response.results.length; i++) {
+       				var resultRow = $('<tr>');
+       				resultRow.attr('value', i);
+       				resultRow.attr('id', 'resultRow' + i);
+       				resultRow.addClass('row');
+       				resultRow.addClass('resultRow');
+
+       				$('#tableBody').append(resultRow);
+       				$('#resultRow' + i).append('<td value=' + i + '>' + response.results[i].caseName + '</td>');
+       				$('#resultRow' + i).append('<td value=' + i + '>' + response.results[i].court + '</td>');
+       				$('#resultRow' + i).append('<td value=' + i + '>' + response.results[i].snippet + '</td><br>');
+
+       				// store array of absolute url's
+       				opinion = 'http://api.intellexer.com/summarize?apikey=' + apikey2 + '&conceptsRestriction=7&returnedTopicsCount=2&summaryRestriction=10&textStreamLength=1000&url=' + opinionRoot + response.results[i].absolute_url;
+       				opinions.push(opinion);
+       			}
+       		}     		
+    	});
+	};
+
+	// second ajax call. when selecting which case from results the case is summarized
+	function summarize () {
+		var num = parseInt($(this).attr('value'));
+   		var queryUrl2 = opinions[num];
+   		$('#result').empty();
+   		$('#result').html('<h2>Briefing...</h2>');
+   		
+       	$.ajax({
+       		url: queryUrl2,
+   			method: 'GET'
+	   	}).done(function(response2) {
+	   		$('#result').empty();
+       		$('#result').html("<h3>You've Been Briefed!</h3>");
+       		for (var i = 0; i < response2.items.length; i++) {
+       			$('#result').append('<p>' + response2.items[i].text + '</p>');	
        		}
-
        		
-    });
-	
-});
+       		var backButton = $('<button>Back</button>');
+       		backButton.attr('id', 'backButton');
+       		backButton.addClass('btn btn-success');
+       		backButton.attr('type', 'button');
+       		backButton.attr('name', 'Back');
 
-   
-   
-	// setTimeout(function () {
-	// 	// dataUrl = opinionRoot + opinion;
-	// 	// console.log('dataUrl: ' + dataUrl);
-		
+       		$('#result').append(backButton);
+       	});
+	};
+
+	// back button on summary page, reloads previous results
+	function restoreTable () {
+
+	}
 
 
-  //   	textapi.summarize({
-  // 			url: 'http://techcrunch.com/2015/04/06/john-oliver-just-changed-the-surveillance-reform-debate',
-  // 			sentences_number: 3
-		// }, function(error, response) {
-  // 			if (error === null) {
-  //   			response.sentences.forEach(function(s) {
-  //     			console.log(s);
-  //   			});
- //  // 			}
-	// 	});
-
-    	
- //    // timeout for now.  will add this to the submit on-click function
-	// }, 5000);
-	
-	// original curl below
-
-		// curl -X POST --include 'https://extracttext.p.mashape.com/api/content_extract/' \
-		//   -H 'X-Mashape-Key: bsAWoVPCw0mshtGXn976UwaNxPsJp1Pk92djsnDGgknyotnlW9' \
-		//   -H 'Content-Type: application/x-www-form-urlencoded' \
-		//   -H 'Accept: application/json' \
-		//   -d 'dataurl=http://www.vanityfair.com/business/2013/06/kara-swisher-instagram'
-		// 
-		// var queryUrl2 = "https://www.courtlistener.com/api/rest/v3/opinions/" + opinion;
-		// 
-		// $.ajax({
-		// 	url: queryUrl2,
-		// 	method: 'GET'
-		// }).done(function(response2) {
-		// 	$('#opinion').html('Opinion: ' + response2);
-		// });
-
+	// 	event listeners
+	$(document).on('click', '#search', search);
+ 	$(document).on('click', 'td', summarize);
+ 	$(document).on('click', '#backButton', restoreTable);
 });
