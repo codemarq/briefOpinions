@@ -16,11 +16,15 @@ $(document).ready(function() {
     var opinions = [];
     var query = '';
 
+    // first api key for courtlistener search
+    var apikey1 = '900949a9fbfb017e67dc0e6333321693036aff6a';
+
     // second ajax call-intellexer summarizer
     var	apikey2 = '55accaef-cf1e-4ff6-91cf-8bd4a4dc93ac';
        
 	// Search Button Click
 	function search () {
+		$('#result').css('visibility', 'visible');
 	
 		// prevent reload of page if user hits enter
 		// event.preventDefault();
