@@ -1,23 +1,16 @@
-html, body {
-  height: 100%;
+html {
+  position: relative;
+  min-height: 100%
 }
 
 body {
-    background-color: #6980F1;
-    text-align: center;
-    font-family: 'Amaranth', sans-serif;
+  /* Margin bottom by footer height */
+  margin-bottom: 60px;
+  background-color: #6980F1;
+  text-align: center;
+  font-family: 'Amaranth', sans-serif;
 }
  
-.page-wrap {
-  min-height: 100%;
-  /* equal to footer height */
-  margin-bottom: -60px; 
-}
-.page-wrap:after {
-  content: "";
-  display: block;
-}
-
 #main {
  	color: white;
   font-size: 20px !important;
@@ -30,11 +23,10 @@ body {
   font-family: 'Amaranth', sans-serif;
 }
 
-
 .well {
-    background-color: #96C1ED !important;
-    color: black;
-    font-family: 'Amaranth', sans-serif;
+  background-color: #96C1ED !important;
+  color: black;
+  font-family: 'Amaranth', sans-serif;
 }
  
 .jumbotron {
@@ -48,7 +40,6 @@ body {
   /* change bootstrap jumbotron test color */
   color: white !important;
   background-color: darkblue !important;
-
 }
 
 #recentSearches {
@@ -56,12 +47,12 @@ body {
   font-family: 'Bentham', serif;
 }
 
-footer, .page-wrap:after {
-  height: 60px; 
+#recentSearches li {
+  font-size: 16px;
 }
 
 footer {
-  clear: both;
+  /*sticky footer*/
 	color: white;
 	position: absolute;
   bottom: 0;
@@ -87,4 +78,8 @@ tr {
 
 #result {
   text-align: left;
+}
+
+#result h3, {
+  text-align: center;
 }
