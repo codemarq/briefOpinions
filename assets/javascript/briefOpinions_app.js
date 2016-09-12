@@ -20,25 +20,25 @@ $(document).ready(function() {
     var	apikey2 = '55accaef-cf1e-4ff6-91cf-8bd4a4dc93ac';
        
 	// Search Button Click
-	function search (event) {
+	function search () {
 	
 		// prevent reload of page if user hits enter
-		event.preventDefault();
+		// event.preventDefault();
 		
-		recent = $('#case-input').val().trim();
+		// query var captures input for first ajax call to court listener api
+		query = $('#case-input').val().trim();
 
 		// set firebase value
 		database.ref().set({
-			recent: recent,
+			recent: query,
 		});
 
-		// query var captures input for first ajax call to court listener api
-		query = $('#case-input').val().trim();
+		
 		// court listener api endpoint url
 		var queryUrl1 = "https://www.courtlistener.com/api/rest/v3/search/?type=o&q=&type=o&order_by=score+desc&stat_Precedential=on&cited_gt=0&cited_lt=6000&case_name=" + query;
 		
 		// empty search field
-		$('#case-input').empty();
+		$('#case-input').html(' ');
        	// makes the request for data from courtListener
    		$.ajax({
     		url: queryUrl1, 
@@ -90,6 +90,7 @@ $(document).ready(function() {
        			}
        		}     		
     	});
+    	return false;
 	};
 
 	// second ajax call. when selecting which case from results the case is summarized
@@ -121,9 +122,23 @@ $(document).ready(function() {
 
 	// back button on summary page, reloads previous results
 	function restoreTable () {
-
+		$('#case-input').html(query);
+		search();
 	}
 
+	//Firebase watcher + initial loader HINT: .on("value")
+	database.ref().on("value", function(snapshot) {
+		// Log everything that's coming out of snapshot
+		console.log(snapshot.val().recent);
+
+		// Change the HTML to reflect
+		$("#examples").append('<li><p>' + snapshot.val().recent+ '</p></li>');
+
+	// Handle the errors
+	}, function(errorObject) {
+		// error message
+		console.log("Errors handled: " + errorObject.code);
+	});
 
 	// 	event listeners
 	$(document).on('click', '#search', search);

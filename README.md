@@ -1,9 +1,9 @@
 # Brief Opinions
-Brief Opinions is an app that searches court cases and returns a summarized opinion via the courtlistener API and the textuality API.
+Brief Opinions is an app that searches court cases and returns a summarized opinion via the courtlistener API and the Intellexer Summarizer API.
 
 ## Screenshots
 
-![ScreenShot](assets/images/screenshot-2.png)
+![ScreenShot](assets/images/screenshot-3.png)
 
 ## Technologies Used
 * JavaScript
@@ -13,13 +13,13 @@ Brief Opinions is an app that searches court cases and returns a summarized opin
 * Ajax
 * Firebase
 * Court Listener REST API (https://www.courtlistener.com/api/rest-info/)
-* Textuality API (https://market.mashape.com/djinn/textuality)
+* Intellexer Summarizer API (https://http://esapi.intellexer.com/Summarizer)
 * twitter Bootstrap (http://getbootstrap.com/)
 
 
 ## Overall Concept
-Brief Opinions utilizes the Textuality API, which summarizes text, along with the Court Listener API, which is a searchable database of court opinions. 
-This application first uses the CourtListener API to return an object based on the users search term.  That object contains the URL of the site displaying the searched for opinion.  Brief Opinions does not however, direct the user off our site and onto that URL, but rather employs Textuality to return a second object with the summary of the URL’s content (the actual court opinion).  The application then writes the content of that object (the summarized opinion) into the html of our page. 
+Brief Opinions utilizes the Intellexer Summarizer API, which summarizes text, along with the Court Listener API, which is a searchable database of court opinions. 
+This application first uses the CourtListener API to return an object based on the users search term.  That object contains the URL of the site displaying the searched for opinion.  Brief Opinions does not however, direct the user off our site and onto that URL, but rather employs Intellexer Summarizer to return a second object with the summary of the URL’s content (the actual court opinion).  The application then writes the content of that object (the summarized opinion) into the html of our page. 
 
 
 ## Target User
