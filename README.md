@@ -30,7 +30,7 @@ This application first uses the CourtListener API to return JSON objects (popula
 Law Students, Lawyers, and anyone interested in gleaning a quick understanding of a Supreme Court Opinion through a summarized version of its original language.  
 
 ## Problem Solved
-Brief Opinions saves time by bestowing upon its users the ability to glean key information from a Supreme Court Decision in less time than it would take to read the entire opinion.  Entire opinions can contain anywhere from 4,000 words to 50,000 words.  This app uses a free, publicly available court database api (courtlistener.com) and summarizes these opinions down to 10 sentences via the Intellexer Summarizer api.
+Brief Opinions saves time by giving its users the ability to glean key information from a Supreme Court Decision in less time than it would take to read the entire opinion.  Entire opinions can contain anywhere from 4,000 words to 50,000 words.  This app uses a free, publicly available court database api (courtlistener.com) and summarizes these opinions down to 10 sentences via the Intellexer Summarizer api.
 
 ## Built With
 * Sublime
