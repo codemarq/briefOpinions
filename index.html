@@ -16,7 +16,13 @@
 	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
 
 	<!-- Google font selections -->
-	<link href="https://fonts.googleapis.com/css?family=Amaranth|Bentham|Poller+One" rel="stylesheet">
+	<!-- Amaranth font-->
+	<link href="https://fonts.googleapis.com/css?family=Amaranth" rel="stylesheet">
+	<!-- Bentham font-->
+	<link href="https://fonts.googleapis.com/css?family=Bentham" rel="stylesheet">
+	<!-- Poller One font -->
+	<link href="https://fonts.googleapis.com/css?family=Poller+One" rel="stylesheet">
+
 
 	<!-- mobile responsiveness -->
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -35,14 +41,14 @@
 	<header class="row">
 		<div class="jumbotron">
 			<h1><strong>Brief Opinions</strong></h1>
-			<h2> Supreme Court Opinions, Only Briefer </h2>
 		</div>
  	</header>	
 
  	<!-- summary of the app -->
    
     <div id="main">
-     	<h3><b>'Brief Opinions'</b> takes the original language of Supreme Court opinions and decides what to carefully edit from them in order to deliver you the briefest version possible that still contains the most important information.  It is the most efficent way to stay "briefed" on any Supreme Court decision, new or old. </h3>
+    	<h2>Court Opinions, Only Briefer </h2>
+     	<p>Brief Opinions takes the original text of Court opinions and edits them to give you the most concise version possible that still contains the most important information.  It is the most efficient way to stay "briefed" on any Supreme Court decision, new or old. </p>
     </div>
 
     <!-- opinion search and recent searches in same row -->
@@ -50,9 +56,12 @@
   	 	<div class="well col-md-5 col-sm-12">
  			<form id="form">
    				<h3>Brief Me!</h3>
-   				<input type="text" id="case-input" class="form-control" placeholder="Search by Party Name, e.g. Roe v Wade">
-   				<br>
-   				<input id="search" type="submit" class="btn btn-success">
+   				<div class="form-group col-md-8 col-sm-12">
+   					<input type="text" id="case-input" class="form-control" placeholder="Search by Party Name, e.g. Roe v Wade">
+   				</div>
+   				<div class="form-group col-md-4 col-sm-12">
+   					<input id="search" type="submit" class="btn btn-success">
+   				</div>
  			</form>
  		</div>
 
@@ -69,10 +78,7 @@
    	</div>
 
    	</div>
-   	<footer class="container">
-			<!-- <div class="w3-border-top w3-border-bottom"> -->
-			<div class="col-md-12">&copy; 2016 John-Mike Marquardt, Jay Frimmel, Eric Sievers</div>
-	</footer>
+   	<footer>&copy; 2016 John-Mike Marquardt, Jay Frimmel, Eric Sievers</footer>
 </body>
 </html>
 

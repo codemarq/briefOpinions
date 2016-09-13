@@ -6,7 +6,8 @@ html {
 body {
   /* Margin bottom by footer height */
   margin-bottom: 60px;
-  background-color: #6980F1;
+  /*background-color: #6980F1;*/
+  background-color: #2b3e50;
   text-align: center;
   font-family: 'Amaranth', sans-serif;
 }
@@ -16,7 +17,10 @@ body {
   font-size: 20px !important;
   padding-top: 15px;
   padding-bottom: 20px;
+}
 
+#main p {
+  text-align: left;
 }
 
 #popSearchesTitle {
@@ -40,6 +44,7 @@ body {
   /* change bootstrap jumbotron test color */
   color: white !important;
   background-color: darkblue !important;
+  margin-bottom: 5px;
 }
 
 #recentSearches {
@@ -78,9 +83,9 @@ tr {
 
 #result {
   visibility: hidden;
-  text-align: left;
+  text-align: center;
 }
 
-#result h3, {
-  text-align: center;
+#result p {
+  text-align: left;
 }

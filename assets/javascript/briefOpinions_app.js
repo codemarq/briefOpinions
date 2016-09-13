@@ -10,14 +10,11 @@ $(document).ready(function() {
 	var database = firebase.database();
 
 	//  opinion from court listener opinions api
-	var opinionEndpoint = 'https://www.courtlistener.com/api/rest/v3/opinions/?case_name=roe+v+wade';		
+	var opinionEndpoint = "https://www.courtlistener.com/api/rest/v3/search/?type=o&q=&type=o&order_by=score+desc&stat_Precedential=on&cited_gt=0&cited_lt=6000&case_name=";		
 	var opinion = '';
 	var opinionRoot = "https://www.courtlistener.com";
     var opinions = [];
     var query = '';
-
-    // first api key for courtlistener search
-    var apikey1 = '900949a9fbfb017e67dc0e6333321693036aff6a';
 
     // second ajax call-intellexer summarizer
     var	apikey2 = '55accaef-cf1e-4ff6-91cf-8bd4a4dc93ac';
@@ -25,9 +22,10 @@ $(document).ready(function() {
 	// Search Button Click
 	function search () {
 		$('#result').css('visibility', 'visible');
+		$('#result').html('<h3>Searching...</h3>');
 	
 		// prevent reload of page if user hits enter
-		// event.preventDefault();
+		// event.preventDefault();// had to switch to return false when i added back button;
 		
 		// query var captures input for first ajax call to court listener api
 		query = $('#case-input').val().trim();
@@ -39,8 +37,8 @@ $(document).ready(function() {
 
 		
 		// court listener api endpoint url
-		var queryUrl1 = "https://www.courtlistener.com/api/rest/v3/search/?type=o&q=&type=o&order_by=score+desc&stat_Precedential=on&cited_gt=0&cited_lt=6000&case_name=" + query;
-		
+		// var queryUrl1 = "https://www.courtlistener.com/api/rest/v3/search/?type=o&q=&type=o&order_by=score+desc&stat_Precedential=on&cited_gt=0&cited_lt=6000&case_name=" + query;
+		var queryUrl1 = opinionEndpoint + query;
 		// empty search field
 		$('#case-input').html(' ');
        	// makes the request for data from courtListener
@@ -49,7 +47,7 @@ $(document).ready(function() {
     		method: 'GET'
     		// when done
     	}).done(function(response) {
-       		if (response.results.length == 0) {
+       		if (response.results.length === 0) {
        			$('#result').html('<h3>No results found, check spelling!</h3>');
        		} else {
        			// draw a table for search results
@@ -59,14 +57,14 @@ $(document).ready(function() {
        			
        			var tableRow = $('<tr>');
        			tableRow.attr('id', 'tableRow');
-       			tableRow.addClass('row')
+       			tableRow.addClass('row');
 
        			var tableBody = $('<tbody>');
-   				tableBody.attr('id', 'tableBody')
+   				tableBody.attr('id', 'tableBody');
        				
        			// write table of search results to html
        			$('#result').empty();
-       			$('#result').html('<h3>Results</h3>');
+       			$('#result').html('<h3>Results</h3><h4>(click result below to summarize the Opinion)</h4>');
        			$('#result').append(table);
    				$('#table').append(tableHead);
    				$('#table').append(tableRow);
@@ -95,7 +93,7 @@ $(document).ready(function() {
        		}     		
     	});
     	return false;
-	};
+	}
 
 	// second ajax call. when selecting which case from results the case is summarized
 	function summarize () {
@@ -122,7 +120,7 @@ $(document).ready(function() {
 
        		$('#result').append(backButton);
        	});
-	};
+	}
 
 	// back button on summary page, reloads previous results
 	function restoreTable () {
