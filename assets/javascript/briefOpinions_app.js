@@ -89,7 +89,7 @@ $(document).ready(function() {
        				$('#resultRow' + i).append('<td value=' + i + '>' + response.results[i].snippet + '</td><br>');
 
        				// store array of absolute url's
-       				opinion = 'http://api.intellexer.com/summarize?apikey=' + apikey2 + '&conceptsRestriction=7&returnedTopicsCount=2&summaryRestriction=10&textStreamLength=1000&url=' + opinionRoot + response.results[i].absolute_url;
+       				opinion = 'https://api.intellexer.com/summarize?apikey=' + apikey2 + '&conceptsRestriction=7&returnedTopicsCount=2&summaryRestriction=10&textStreamLength=1000&url=' + opinionRoot + response.results[i].absolute_url;
        				opinions.push(opinion);
        			}
        		}     		
