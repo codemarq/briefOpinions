@@ -15,7 +15,7 @@ Brief Opinions is an app that searches court cases and returns a summarized opin
 * Ajax
 * Firebase
 * Court Listener REST API (https://www.courtlistener.com/api/rest-info/)
-* Intellexer Summarizer API (https://http://esapi.intellexer.com/Summarizer)
+* Intellexer Summarizer API (https://http://esapi.intellexer.com/Summarizer) ![logo](assets/images/Intellexer_Logo2.png)
 * twitter Bootstrap (http://getbootstrap.com/)
 * Trello
 * Slack
@@ -46,3 +46,5 @@ Brief Opinions saves time by giving its users the ability to glean key informati
 * Eric Sievers: Concept, Firebase, Presentation
 * Jay M. Frimmel: Main HTML, CSS, Bootstrap, images and design
 * John-Mike Marquardt: Javascript, jQuery, Trello, some HTML/CSS, project manager
+
+![logo](assets/images/Intellexer_Logo2.png)
