@@ -87,3 +87,7 @@ tr {
 #result p {
   text-align: left;
 }
+
+#intellexer img {
+  max-width: 200px;
+}
