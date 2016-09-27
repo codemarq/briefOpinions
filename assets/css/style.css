@@ -12,7 +12,7 @@ body {
  
 #main {
  	color: white;
-  font-size: 20px !important;
+  font-size: 20px;
   padding-top: 15px;
   padding-bottom: 20px;
 }
@@ -26,7 +26,7 @@ body {
 }
 
 .well {
-  background-color: #96C1ED !important;
+  background-color: #96C1ED;
   color: black;
   font-family: 'Amaranth', sans-serif;
 }
@@ -40,8 +40,8 @@ body {
   background-repeat: no-repeat;
   background-position: center;
   /* change bootstrap jumbotron test color */
-  color: white !important;
-  background-color: darkblue !important;
+  color: white;
+  background-color: darkblue;
   margin-bottom: 5px;
 }
 
@@ -90,7 +90,7 @@ tr {
 
 #intellexer img {
   max-width: 200px;
-  background-color: white;
+  background-color: #e8e8e8;
   padding: 5px;
   margin-top: 5px;
 }
