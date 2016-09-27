@@ -90,4 +90,7 @@ tr {
 
 #intellexer img {
   max-width: 200px;
+  background-color: white;
+  padding: 5px;
+  margin-top: 5px;
 }
