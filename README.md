@@ -35,8 +35,8 @@ Brief Opinions saves time by giving its users the ability to glean key informati
 * Google Firebase
 * Twitter Bootstrap
 
-## Authors
-* John-Mike Marquardt [Github](https://github.com/codemarq) | [jmmarquardt.com](https://jmmarquardt.com)
+## Authors &copy; 2016
+* &copy; 2016 John-Mike Marquardt [Github](https://github.com/codemarq) | [jmmarquardt.com](https://jmmarquardt.com) | [LinkedIn](https://www.linkedin.com/in/jmmarquardt)
 * Eric Sievers [@goodtuesday](https://github.com/goodtuesday)
 * Jay M. Frimmel [@JayMFrimmel](https://github.com/JayMFrimmel)
 
