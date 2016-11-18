@@ -4,8 +4,6 @@ Brief Opinions is an app that searches court cases and returns a summarized opin
 ## Screenshots
 ### Desktop
 ![ScreenShot](assets/images/screenshot-4.png)
-### Mobile
-![ScreenShot](assets/images/screenshot-5.png)
 
 ## Technologies Used
 * JavaScript
@@ -37,10 +35,10 @@ Brief Opinions saves time by giving its users the ability to glean key informati
 * Google Firebase
 * Twitter Bootstrap
 
-## Authors
-* John-Mike Marquardt @codemarq
-* Eric Sievers @goodtuesday
-* Jay M. Frimmel @JayMFrimmel
+## Authors &copy; 2016
+* John-Mike Marquardt [Github](https://github.com/codemarq) | [jmmarquardt.com](https://jmmarquardt.com) | [LinkedIn](https://www.linkedin.com/in/jmmarquardt)
+* Eric Sievers [@goodtuesday](https://github.com/goodtuesday)
+* Jay M. Frimmel [@JayMFrimmel](https://github.com/JayMFrimmel)
 
 ## Acknowledgements
 * Eric Sievers: Concept, Firebase, Presentation
