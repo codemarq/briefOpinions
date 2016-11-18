@@ -1,5 +1,5 @@
 # Brief Opinions
-Brief Opinions is an app that searches court cases and returns a summarized opinion via the courtlistener API and the Intellexer Summarizer API.
+Brief Opinions is an app that searches court cases and returns a summarized opinion via the courtlistener API and the Intellexer Summarizer API. [Brief Opinions](https://briefopinions.herokuapp.com/)
 
 ## Screenshots
 ### Desktop
